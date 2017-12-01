@@ -23,7 +23,7 @@ export default class News extends Component {
             const topics = getSectionNames(articles);
             
             return this.setState({ 
-                orginalArticles: articles, 
+                originalArticles: articles, 
                 originalTopics: topics,
                 articles, 
                 topics 
@@ -39,7 +39,7 @@ export default class News extends Component {
         const filtered = this.state.originalArticles.filter(article => {
             return updated[article.section];
         });
-    
+
         return this.setState({ articles: filtered, topics: updated });
     }
     

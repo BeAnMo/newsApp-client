@@ -12,17 +12,18 @@ export default class SingleTopic extends Component {
 
   handleToggle(e){
     e.preventDefault();
-
-    const topic = e.target.textContent;
     // allow toggled topic to show as strike-through or something to denote its state
     this.setState({ isActive: !this.state.isActive });
     
-    return this.props.subscription(topic);
+    return this.props.subscription(this.state.topic);
   }
 
-  // how to toggle all when select/deselect is used?
   componentDidMount(){
     return this.setState({ isActive: this.props.isActive });
+  }
+
+  componentWillReceiveProps(nextProps){
+    return this.setState({ isActive: nextProps.isActive });
   }
 
   render(){

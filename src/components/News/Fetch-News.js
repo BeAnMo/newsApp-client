@@ -6,18 +6,18 @@ import { findValues } from 'json-find';
 // node-express server
 const apiUrl = 'http://localhost:3001/api_v1/html';
 export const FetchNews = FetchApp({
-	url: apiUrl,
-	//path: ['response', 'results'],
+    url: apiUrl,
+    //path: ['response', 'results'],
     path: ['data'],
-    fn(json){
-		return json.map(article => {
+    fn(json) {
+        return json.map(article => {
             return findValues(
                 article,
-                'title', 
-                'section', 
-                'date', 
+                'title',
+                'section',
+                'date',
                 'html'
             );
         });
-	}
+    }
 });
